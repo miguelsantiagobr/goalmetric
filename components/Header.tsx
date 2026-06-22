@@ -66,7 +66,7 @@ export default function Header() {
       <div className="flex items-center">
         <Link href={`/${currentLang}`} className="transition-opacity hover:opacity-90">
           <Image 
-            src="/logo.png" 
+            src="/.png" 
             alt="GolMetric Logo" 
             width={164} 
             height={70} 
