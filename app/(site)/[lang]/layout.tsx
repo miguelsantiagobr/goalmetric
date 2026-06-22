@@ -54,7 +54,7 @@ export default async function LangLayout({
           <Header />
           
           {/* Sidebar agora recebe a prop lang */}
-          <Sidebar lang={lang} />
+          <Sidebar />
           
           <div className="flex-1 lg:ml-72 min-h-screen pt-20">
             {children}
