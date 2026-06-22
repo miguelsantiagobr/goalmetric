@@ -20,7 +20,8 @@ export default function RegisterForm({ lang, currentLang }: RegisterFormProps) {
   const [success, setSuccess] = useState('');
   const router = useRouter();
 
-  const t = {
+ // 1. Defina o dicionário completo de traduções
+  const translations = {
     pt: {
       title: 'Criar sua conta',
       subtitle: 'Junte-se ao GolMetric e tenha acesso a previsões premium',
@@ -73,7 +74,10 @@ export default function RegisterForm({ lang, currentLang }: RegisterFormProps) {
       login: 'Se connecter',
       success: 'Compte créé avec succès ! Veuillez vérifier votre email pour confirmer.',
     },
-  }[currentLang] || t.pt;
+  };
+
+  // 2. Selecione a tradução baseada no idioma atual, usando o 'pt' como fallback seguro
+  const t = translations[currentLang as keyof typeof translations] || translations.pt;
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();

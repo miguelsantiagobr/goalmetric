@@ -110,11 +110,17 @@ export default function CompetitionDetail({ lang, slug }: CompetitionDetailProps
     if (error) console.error('Erro ao buscar partidas:', error);
 
     // === Correção aplicada aqui ===
-    const formattedMatches: Match[] = (data || []).map((match: any) => ({
-      ...match,
-      home_team: match.home_team?.[0] || { name_pt: 'Time não encontrado', logo_url: '' },
-      away_team: match.away_team?.[0] || { name_pt: 'Time não encontrado', logo_url: '' },
-    }));
+    const formattedMatches: Match[] = (data || []).map((match: any) => {
+      // Verifica se o retorno é um array ou já é o objeto direto
+      const home = Array.isArray(match.home_team) ? match.home_team[0] : match.home_team;
+      const away = Array.isArray(match.away_team) ? match.away_team[0] : match.away_team;
+
+      return {
+        ...match,
+        home_team: home || { name_pt: 'Time não encontrado', logo_url: '' },
+        away_team: away || { name_pt: 'Time não encontrado', logo_url: '' },
+      };
+    });
 
     setMatches(formattedMatches);
     setTotalPages(Math.ceil((count || 0) / ITEMS_PER_PAGE));

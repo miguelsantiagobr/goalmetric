@@ -17,8 +17,9 @@ export default function Sidebar() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // ======================== TRADUÇÕES ========================
-  const translations: Record<string, { hello: string; logout: string; login: string; inicio: string; competicoes: string; profile: string }> = {
+
+// ======================== TRADUÇÕES ========================
+  const translations: Record<string, { hello: string; logout: string; login: string; inicio: string; competicoes: string; profile: string; times: string }> = {
     pt: { hello: 'Olá', logout: 'Sair', login: 'Entrar', inicio: 'Início', competicoes: 'Competições', profile: 'Minha Conta', times: 'Times'},
     en: { hello: 'Hello', logout: 'Logout', login: 'Login', inicio: 'Home', competicoes: 'Competitions', profile: 'My Account', times: 'Teams' },
     es: { hello: 'Hola', logout: 'Cerrar sesión', login: 'Iniciar sesión', inicio: 'Inicio', competicoes: 'Competiciones', profile: 'Mi Cuenta', times: 'Equipos' },

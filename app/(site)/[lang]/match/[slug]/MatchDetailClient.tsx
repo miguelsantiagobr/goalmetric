@@ -226,7 +226,7 @@ export default function MatchDetailClient({ match, lang, currentLang }: MatchDet
     }
   };
 
-  const t = {
+ const translations = {
     pt: { 
       gol1: "Gol no 1º Tempo", golmais: "+ de 0.5 Gols", ambos: "Ambos Marcam", 
       totalgol: "Previsão de Gols", totalcard: "Previsão de Cartões", totalcanto: "Previsão de Escanteios", 
@@ -263,7 +263,9 @@ export default function MatchDetailClient({ match, lang, currentLang }: MatchDet
       titulologinpremium: "Analyse d'Expert", facalogin: "Connectez-vous pour débloquer le pari recommandé, la prévision exacte des buts et le joueur ayant la plus grande probabilité de succès.",
       entraragora: "Révéler le Pronostic Exclusif", avisopremium: "EXCLUSIF", revelarjogador: "Découvrez le Joueur Clé",  jogadordestaque: "Joueur Clé", jogadordestaqueinfo: "Débloquez pour voir quel joueur a les meilleures chances statistiques dans ce match", textoh1: "Pronostic du Match, Statistiques et Meilleur Pari", oddsTitle: "Cotes Disponibles"
     },
-  }[currentLang] || t.pt;
+  };
+
+  const t = translations[currentLang as keyof typeof translations] || translations.pt;
 
   const handleLockedClick = () => {
     window.location.href = `/${lang}/login`;

@@ -142,7 +142,21 @@ export default function TeamDetail({ lang, slug }: TeamDetailProps) {
 
     if (error) console.error('Erro ao buscar partidas:', error);
 
-    setMatches(data || []);
+    // Mapeia e garante que os sub-objetos não venham como Arrays ou nulos
+    const formattedMatches: Match[] = (data || []).map((match: any) => {
+      const home = Array.isArray(match.home_team) ? match.home_team[0] : match.home_team;
+      const away = Array.isArray(match.away_team) ? match.away_team[0] : match.away_team;
+      const comp = Array.isArray(match.competition) ? match.competition[0] : match.competition;
+
+      return {
+        ...match,
+        home_team: home || { name_pt: 'Time não encontrado', logo_url: '' },
+        away_team: away || { name_pt: 'Time não encontrado', logo_url: '' },
+        competition: comp || undefined
+      };
+    });
+
+    setMatches(formattedMatches);
     setTotalPages(Math.ceil((count || 0) / ITEMS_PER_PAGE));
     setLoadingMatches(false);
   }, [showPast]);

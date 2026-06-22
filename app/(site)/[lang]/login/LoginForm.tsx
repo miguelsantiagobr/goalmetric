@@ -18,53 +18,56 @@ export default function LoginForm({ lang, currentLang }: LoginFormProps) {
   const [error, setError] = useState('');
   const router = useRouter();
 
-  // Traduções
-  const t = {
-    pt: {
-      title: 'Entrar no GolMetric',
-      subtitle: 'Acesse análises profissionais de futebol',
-      name: 'Nome (opcional)',
-      email: 'Email',
-      password: 'Senha',
-      loginButton: 'Entrar',
-      loading: 'Entrando...',
-      noAccount: 'Não tem conta?',
-      register: 'Criar conta',
-    },
-    en: {
-      title: 'Sign in to GolMetric',
-      subtitle: 'Access professional football analysis',
-      name: 'Name (optional)',
-      email: 'Email',
-      password: 'Password',
-      loginButton: 'Sign In',
-      loading: 'Signing in...',
-      noAccount: "Don't have an account?",
-      register: 'Create account',
-    },
-    es: {
-      title: 'Iniciar Sesión en GolMetric',
-      subtitle: 'Accede a análisis profesionales de fútbol',
-      name: 'Nombre (opcional)',
-      email: 'Correo electrónico',
-      password: 'Contraseña',
-      loginButton: 'Iniciar Sesión',
-      loading: 'Iniciando sesión...',
-      noAccount: '¿No tienes cuenta?',
-      register: 'Crear cuenta',
-    },
-    fr: {
-      title: 'Se connecter à GolMetric',
-      subtitle: 'Accédez aux analyses professionnelles de football',
-      name: 'Nom (optionnel)',
-      email: 'Email',
-      password: 'Mot de passe',
-      loginButton: 'Se connecter',
-      loading: 'Connexion en cours...',
-      noAccount: "Vous n'avez pas de compte ?",
-      register: 'Créer un compte',
-    },
-  }[currentLang] || t.pt; // fallback pt
+  const translations = {
+  pt: {
+    title: 'Entrar no GolMetric',
+    subtitle: 'Acesse análises profissionais de futebol',
+    name: 'Nome (opcional)',
+    email: 'Email',
+    password: 'Senha',
+    loginButton: 'Entrar',
+    loading: 'Entrando...',
+    noAccount: 'Não tem conta?',
+    register: 'Criar conta',
+  },
+  en: {
+    title: 'Sign in to GolMetric',
+    subtitle: 'Access professional football analysis',
+    name: 'Name (optional)',
+    email: 'Email',
+    password: 'Password',
+    loginButton: 'Sign In',
+    loading: 'Signing in...',
+    noAccount: "Don't have an account?",
+    register: 'Create account',
+  },
+  es: {
+    title: 'Iniciar Sesión en GolMetric',
+    subtitle: 'Accede a análisis profesionales de fútbol',
+    name: 'Nombre (opcional)',
+    email: 'Correo electrónico',
+    password: 'Contraseña',
+    loginButton: 'Iniciar Sesión',
+    loading: 'Iniciando sesión...',
+    noAccount: '¿No tienes cuenta?',
+    register: 'Crear cuenta',
+  },
+  fr: {
+    title: 'Se connecter à GolMetric',
+    subtitle: 'Accédez aux analyses professionnelles de football',
+    name: 'Nom (optionnel)',
+    email: 'Email',
+    password: 'Mot de passe',
+    loginButton: 'Se connecter',
+    loading: 'Connexion en cours...',
+    noAccount: "Vous n'avez pas de compte ?",
+    register: 'Créer un compte',
+  },
+};
+
+const t =
+  translations[currentLang as keyof typeof translations] ||
+  translations.pt;
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
