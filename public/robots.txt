@@ -1,0 +1,15 @@
+# robots.txt - GoalMetric
+User-agent: *
+Allow: /
+
+# Bloqueia pastas sensíveis
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://goalmetric.online/sitemap.xml
+
+# Crawl delay (opcional, mas útil)
+Crawl-delay: 1

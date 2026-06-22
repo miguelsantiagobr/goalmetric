@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --background: #09090b;
+  --foreground: #ffffff; 
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  background: var(--background);
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Transição linear suave com o tom #020616 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 450px; /* Aumentado para uma transição mais longa e suave */
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(to bottom, #111314, #0e1111, #0b0f0e, #090c0a, #080905);
+}
+
+@theme inline {
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
