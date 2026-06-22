@@ -105,7 +105,7 @@ export default function Sidebar() {
       <header className="lg:hidden fixed top-0 left-0 right-0 w-full h-16 bg-zinc-950 border-b border-zinc-900 z-50 px-6 flex items-center justify-between">
         <Link href={`/${currentLang}`} className="flex items-center">
           <Image 
-            src="/logo.png" 
+            src="/" 
             alt="GolMetric Logo" 
             width={140} 
             height={40}
