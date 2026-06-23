@@ -62,19 +62,20 @@ export default function Header() {
     /* A borda inferior agora só é gerada no desktop (lg:border-b) eliminando a linha feia no mobile */
     <header className="fixed top-0 left-0 right-0 w-full h-20 bg-zinc-950 backdrop-blur-md z-50 px-6 lg:px-12 flex items-center justify-between lg:border-b lg:border-zinc-900">
       
-      {/* LADO ESQUERDO: Logotipo Oficial */}
-      <div className="flex items-center">
-        <Link href={`/${currentLang}`} className="transition-opacity hover:opacity-90">
-          <Image 
-            src="/.png" 
-            alt="GolMetric Logo" 
-            width={164} 
-            height={70} 
-            priority
-            className="object-contain h-15 w-auto"
-          />
-        </Link>
-      </div>
+{/* LADO ESQUERDO: Logotipo Oficial */}
+<div className="flex items-center">
+  <Link href={`/${currentLang}`} className="transition-opacity hover:opacity-90">
+    <Image 
+      src="/logo.png" 
+      alt="GolMetric Logo" 
+      width={164} 
+      height={70} 
+      priority
+      // Adicionado "hidden md:block" para esconder no mobile e mostrar no desktop
+      className="object-contain h-15 w-auto hidden md:block"
+    />
+  </Link>
+</div>
 
       {/* CENTRO: Botão de Instalação (Exclusivo PC conforme imagem) */}
 
