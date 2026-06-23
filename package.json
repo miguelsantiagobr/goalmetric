@@ -5,9 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "npm run sitemap && next build",
+    "build": "next build",
     "start": "next start",
-    "sitemap": "ts-node scripts/generate-sitemap.ts",
     "lint": "eslint ."
   },
   "dependencies": {
